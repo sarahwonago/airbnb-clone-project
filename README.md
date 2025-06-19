@@ -141,3 +141,30 @@ Securing the backend APIs of the Airbnb Clone project is critical to protect use
 - **Secure Payments**: Ensures financial transactions and payment details are encrypted and verified.
 - **Trust & Reliability**: Builds user confidence in the platform by ensuring data is handled securely.
 - **System Integrity**: Prevents malicious users from disrupting services or accessing administrative features.
+
+
+## CI/CD Pipeline
+
+### What is CI/CD?
+
+**CI/CD** stands for **Continuous Integration** and **Continuous Deployment/Delivery**. It is a software development practice that automates the process of building, testing, and deploying code changes. CI/CD helps streamline development workflows, reduce errors in production, and deliver new features faster and more reliably.
+
+### Why It’s Important for This Project
+
+- **Automated Testing**: Ensures every code change passes tests before it’s merged, maintaining code quality.
+- **Faster Deployment**: Automates deployment to development, staging, or production environments.
+- **Team Collaboration**: Allows multiple developers to work concurrently while minimizing conflicts and integration issues.
+- **Early Bug Detection**: Catches issues early in the development cycle through continuous feedback.
+- **Consistent Environments**: Guarantees code runs the same way locally and in production via containerization.
+
+### Tools Used
+
+- **GitHub Actions**: Automates workflows such as running tests, linting code, and deploying applications after each push or pull request.
+- **Docker**: Containerizes the application for consistent development and production environments.
+- **Docker Compose**: Used to manage multi-container setups for services like the backend, database, and caching layer.
+- **PostgreSQL**: Ensures database availability for integration testing.
+- **AWS** *(optional)*: Can be used for automated deployment depending on project needs.
+
+The CI/CD pipeline ensures a reliable and efficient development lifecycle, making it easier to scale and maintain the Airbnb Clone project as it grows.
+
+
