@@ -102,4 +102,42 @@ Features: Post and manage reviews for properties.
 Indexing: Implement indexes for fast retrieval of frequently accessed data.
 Caching: Use caching strategies to reduce database load and improve performance.
 
+## API Security
 
+Securing the backend APIs of the Airbnb Clone project is critical to protect user data, ensure safe transactions, and prevent unauthorized access. Below are the key security measures that will be implemented:
+
+### Key Security Measures
+
+#### 1. Authentication
+- **Description**: Verifies the identity of users before granting access to protected resources.
+- **Implementation**: Uses token-based authentication (e.g., JWT) for secure and stateless user sessions.
+- **Importance**: Prevents unauthorized access and ensures only registered users can interact with their own data.
+
+#### 2. Authorization
+- **Description**: Determines whether an authenticated user has permission to perform a specific action.
+- **Implementation**: Role-based access control (RBAC) to distinguish between hosts and guests.
+- **Importance**: Ensures that users can only perform actions they are permitted to, such as only allowing hosts to create properties.
+
+#### 3. Rate Limiting
+- **Description**: Limits the number of API requests a user or IP can make in a certain period.
+- **Implementation**: Middleware to monitor and restrict excessive usage (e.g., using Django Ratelimit or third-party packages).
+- **Importance**: Protects against brute force attacks and abuse of public endpoints.
+
+#### 4. Data Validation & Sanitization
+- **Description**: Ensures all incoming data is safe and well-formed.
+- **Implementation**: Input validation at both the serializer and view level.
+- **Importance**: Prevents injection attacks and maintains data integrity.
+
+#### 5. HTTPS Enforcement
+- **Description**: Encrypts all data transmitted between clients and the server.
+- **Implementation**: Redirect all HTTP traffic to HTTPS in production environments.
+- **Importance**: Protects sensitive data from being intercepted over the network.
+
+---
+
+### Why API Security is Crucial
+
+- **User Data Protection**: Prevents unauthorized access to personal information such as emails, passwords, and booking history.
+- **Secure Payments**: Ensures financial transactions and payment details are encrypted and verified.
+- **Trust & Reliability**: Builds user confidence in the platform by ensuring data is handled securely.
+- **System Integrity**: Prevents malicious users from disrupting services or accessing administrative features.
