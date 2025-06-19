@@ -25,6 +25,59 @@ The backend for the Airbnb Clone project is designed to provide a robust and sca
 - Docker: Containerization tool for consistent development and deployment environments.
 - CI/CD Pipelines: Automated pipelines for testing and deploying code changes.
 
+## Database Design
+### 1. Users
+Represents both guests and hosts on the platform.
+- `id`: Unique identifier for each user.
+- `name`: Full name of the user.
+- `email`: Email address (used for login).
+- `password_hash`: Hashed password for authentication.
+- `is_host`: Boolean flag to determine if the user is a host.
+
+### 2. Properties
+Listings created by hosts for rental.
+- `id`: Unique identifier for each property.
+- `title`: Name/title of the property.
+- `description`: Detailed information about the property.
+- `location`: Geographical location of the property.
+- `host_id`: Foreign key referencing the User who owns the property.
+
+### 3. Bookings
+Records of reservations made by users for properties.
+- `id`: Unique identifier for each booking.
+- `property_id`: Foreign key referencing the Property.
+- `user_id`: Foreign key referencing the User (guest).
+- `check_in`: Start date of the booking.
+- `check_out`: End date of the booking.
+
+### 4. Reviews
+Feedback and ratings submitted by guests.
+- `id`: Unique identifier for each review.
+- `user_id`: Foreign key referencing the User who wrote the review.
+- `property_id`: Foreign key referencing the Property being reviewed.
+- `rating`: Numerical rating (e.g., 1–5).
+- `comment`: Text content of the review.
+
+### 5. Payments
+Handles financial transactions associated with bookings.
+- `id`: Unique identifier for each payment.
+- `booking_id`: Foreign key referencing the Booking.
+- `amount`: Total amount paid.
+- `payment_status`: Enum indicating status (e.g., pending, completed).
+- `payment_date`: Timestamp of when the payment was processed.
+
+---
+
+### Entity Relationships
+
+- A **User** can list multiple **Properties** (1-to-many).
+- A **Property** can have multiple **Bookings** (1-to-many).
+- A **Booking** belongs to one **Property** and one **User** (many-to-1).
+- A **Property** can receive multiple **Reviews** (1-to-many).
+- A **Review** is written by a **User** for a **Property** (many-to-1).
+- A **Booking** has one associated **Payment** (1-to-1).
+
+
 ## Features Overview
 1. API Documentation
 OpenAPI Standard: The backend APIs are documented using the OpenAPI standard to ensure clarity and ease of integration.
